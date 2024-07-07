@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://autosar.org/schema/r4.0">
+
+	<!-- This file to configure the Software component in the System -->
+
+	<AR-PACKAGES>
+		<AR-PACKAGE>
+			<SHORT-NAME>Software_Com_pkg</SHORT-NAME>
+			<!-- Emergency Auto Breaking System -->
+
+			<ELEMENTS>
+
+				<!-- RTE -->
+
+				<SENSOR-ACTUATOR-SW-COMPONENT-TYPE>
+					<!-- this SWC used to take data from lidar and feed it to the logical 
+						Algorithm SWC -->
+					<SHORT-NAME>Lidar_data_SWC1</SHORT-NAME>
+
+				</SENSOR-ACTUATOR-SW-COMPONENT-TYPE>
+
+
+				<SENSOR-ACTUATOR-SW-COMPONENT-TYPE>
+					<!-- this SWC used to give the Algorithm SWC a feedback about the current 
+						speed -->
+					<SHORT-NAME>Speed_fb_SWC2</SHORT-NAME>
+
+				</SENSOR-ACTUATOR-SW-COMPONENT-TYPE>
+
+
+				<APPLICATION-SW-COMPONENT-TYPE>
+					<!-- this component used to define the action taken based on the logical 
+						implementation -->
+					<SHORT-NAME>EABS_SWC3</SHORT-NAME>
+
+				</APPLICATION-SW-COMPONENT-TYPE>
+
+
+				<PARAMETER-SW-COMPONENT-TYPE>
+					<!-- feed the Algorithm SWC by the distances Constant -->
+					<SHORT-NAME>param_SWC4</SHORT-NAME>
+				</PARAMETER-SW-COMPONENT-TYPE>
+
+				<SENSOR-ACTUATOR-SW-COMPONENT-TYPE>
+					<!-- this SWC used to give a warning indication to the driver -->
+					<SHORT-NAME>Led_Warinig_SWC5</SHORT-NAME>
+				</SENSOR-ACTUATOR-SW-COMPONENT-TYPE>
+
+
+				<NV-BLOCK-SW-COMPONENT-TYPE>
+					<!-- used to communicate with Non Volatile Block manager -->
+					<SHORT-NAME>Flash_NVB_SWC6</SHORT-NAME>
+				</NV-BLOCK-SW-COMPONENT-TYPE>
+
+
+				<!-- BSW -->
+
+				<ECU-ABSTRACTION-SW-COMPONENT-TYPE>
+					<!-- this SWC used to communicate to hardware as midpoint -->
+					<SHORT-NAME>ECU_SWC6</SHORT-NAME>
+				</ECU-ABSTRACTION-SW-COMPONENT-TYPE>
+
+
+				<COMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPE>
+					<!-- that for a critical time situation like breaking or decreasing 
+						the speed -->
+					<SHORT-NAME>CDD_SWC7</SHORT-NAME>
+				</COMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPE>
+
+
+				<SERVICE-SW-COMPONENT-TYPE>
+					<!-- Store the Algorithm decision -->
+					<SHORT-NAME>Dign_SWC8</SHORT-NAME>
+				</SERVICE-SW-COMPONENT-TYPE>
+
+
+
+
+			</ELEMENTS>
+		</AR-PACKAGE>
+
+	</AR-PACKAGES>
+
+
+</AUTOSAR>
