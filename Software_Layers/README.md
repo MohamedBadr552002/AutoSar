@@ -23,3 +23,7 @@ Create an algorithm based on calibration parameter for distance to decide which 
 | Dign SWC | SERVICE | Store the actions by the main algorithm |
 
 
+### Interfaces 
+
+![image](https://github.com/MohamedBadr552002/AutoSar/assets/108628976/3f20fcf2-e5fb-4828-a45b-e1820316ac54)
+
