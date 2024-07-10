@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 file:///D:/work/embedded%20systems%20course/Unit_20(Autosar)/Unit_2(AutoarSWLayers)/Interfaces_Configuration(Lab2)/AUTOSAR_ARXML_Schema/AUTOSAR_00046.xsd">
+	<!-- This file to configure the Software component in the System -->
+	<AR-PACKAGES>
+		<AR-PACKAGE>
+			<SHORT-NAME>Software_Com_pkg</SHORT-NAME>
+			<!-- Emergency Auto Breaking System -->
+			<ELEMENTS>
+				<!-- RTE -->
+				<SENSOR-ACTUATOR-SW-COMPONENT-TYPE>
+					<!-- this SWC used to take data from lidar and feed it to the logical 
+						Algorithm SWC -->
+					<SHORT-NAME>Lidar_data_SWC1</SHORT-NAME>
+					
+					<PORTS>
+						<R-PORT-PROTOTYPE>
+							<SHORT-NAME>lidar_data_port</SHORT-NAME>
+							<REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/INT_PKG/Lidar_interface</REQUIRED-INTERFACE-TREF>
+						</R-PORT-PROTOTYPE>
+					
+					</PORTS>
+				</SENSOR-ACTUATOR-SW-COMPONENT-TYPE>
+				
+				
+				<SENSOR-ACTUATOR-SW-COMPONENT-TYPE>
+					<!-- this SWC used to give the Algorithm SWC a feedback about the current 
+						speed -->
+					<SHORT-NAME>Speed_fb_SWC2</SHORT-NAME>
+					
+					<PORTS>
+						<P-PORT-PROTOTYPE>
+							<SHORT-NAME>speed_command_port</SHORT-NAME>
+							<PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/INT_PKG/SPEED_REQ</PROVIDED-INTERFACE-TREF>
+						</P-PORT-PROTOTYPE>		
+						
+						
+						<R-PORT-PROTOTYPE>
+							<SHORT-NAME>speed_data_port</SHORT-NAME>
+							<REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/INT_PKG/Speeed_interface</REQUIRED-INTERFACE-TREF>
+						</R-PORT-PROTOTYPE>
+												
+					</PORTS>
+				</SENSOR-ACTUATOR-SW-COMPONENT-TYPE>
+				
+				
+				
+				
+				<APPLICATION-SW-COMPONENT-TYPE>
+					<!-- this component used to define the action taken based on the logical 
+						implementation -->
+					<SHORT-NAME>EABS_SWC3</SHORT-NAME>
+					
+					<PORTS>
+						<R-PORT-PROTOTYPE>
+							<SHORT-NAME>speed_req_port</SHORT-NAME>
+							<REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/INT_PKG/SPEED_REQ</REQUIRED-INTERFACE-TREF>
+						</R-PORT-PROTOTYPE>
+							
+						
+						<R-PORT-PROTOTYPE>
+							<SHORT-NAME>dist_req_port</SHORT-NAME>
+							<REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/INT_PKG/DIST_REQ</REQUIRED-INTERFACE-TREF>
+						</R-PORT-PROTOTYPE>
+						
+						
+						<P-PORT-PROTOTYPE>
+							<SHORT-NAME>warning_port</SHORT-NAME>
+							<PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/INT_PKG/Warning</PROVIDED-INTERFACE-TREF>
+						</P-PORT-PROTOTYPE>
+						
+						<R-PORT-PROTOTYPE>
+							<SHORT-NAME>dist_req_port</SHORT-NAME>
+							<REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/INT_PKG/DIST_PARAM_INTR</REQUIRED-INTERFACE-TREF>
+						</R-PORT-PROTOTYPE>
+						
+						<P-PORT-PROTOTYPE>
+							<SHORT-NAME>Critical_breaking_port</SHORT-NAME>
+							<PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/INT_PKG/COMPLIX_DEVICE_DRIVER_INTR</PROVIDED-INTERFACE-TREF>
+						</P-PORT-PROTOTYPE>
+						
+						
+						
+						<R-PORT-PROTOTYPE>
+							<SHORT-NAME>Storage_port</SHORT-NAME>
+							<REQUIRED-INTERFACE-TREF DEST="NV-DATA-INTERFACE">/INT_PKG/NVB_STORGE_INTER</REQUIRED-INTERFACE-TREF>
+						</R-PORT-PROTOTYPE>
+						
+				
+						
+						<P-PORT-PROTOTYPE>
+							<SHORT-NAME>Digno_port</SHORT-NAME>
+							<PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/INT_PKG/DIGNOSTIC_INTER</PROVIDED-INTERFACE-TREF>
+						</P-PORT-PROTOTYPE>
+						
+					</PORTS>
+					
+					
+				</APPLICATION-SW-COMPONENT-TYPE>
+				
+				
+				<PARAMETER-SW-COMPONENT-TYPE>
+					<!-- feed the Algorithm SWC by the distances Constant -->
+					<SHORT-NAME>param_SWC4</SHORT-NAME>
+					
+					<PORTS>
+						<P-PORT-PROTOTYPE>
+							<SHORT-NAME>dist_procider_port</SHORT-NAME>
+							<PROVIDED-INTERFACE-TREF DEST="PARAMETER-INTERFACE">/INT_PKG/DIST_PARAM_INTR</PROVIDED-INTERFACE-TREF>
+						</P-PORT-PROTOTYPE>
+					</PORTS>
+					
+				</PARAMETER-SW-COMPONENT-TYPE>
+				
+				
+				<SENSOR-ACTUATOR-SW-COMPONENT-TYPE>
+					<!-- this SWC used to give a warning indication to the driver -->
+					<SHORT-NAME>Led_Warinig_SWC5</SHORT-NAME>
+					
+					<PORTS>
+						<R-PORT-PROTOTYPE>
+							<SHORT-NAME>led_command_port</SHORT-NAME>
+							<REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/INT_PKG/Warning</REQUIRED-INTERFACE-TREF>
+						</R-PORT-PROTOTYPE>
+					</PORTS>
+					
+				</SENSOR-ACTUATOR-SW-COMPONENT-TYPE>
+				
+				
+				<NV-BLOCK-SW-COMPONENT-TYPE>
+					<!-- used to communicate with Non Volatile Block manager -->
+					<SHORT-NAME>Flash_NVB_SWC6</SHORT-NAME>
+					
+					<PORTS>
+						<P-PORT-PROTOTYPE>
+							<SHORT-NAME>APP_command_port</SHORT-NAME>
+							<PROVIDED-INTERFACE-TREF DEST="NV-DATA-INTERFACE">/INT_PKG/NVB_STORGE_INTER</PROVIDED-INTERFACE-TREF>
+						</P-PORT-PROTOTYPE>
+					</PORTS>
+					
+				</NV-BLOCK-SW-COMPONENT-TYPE>
+				
+				
+				<!-- BSW -->
+				
+				
+				<ECU-ABSTRACTION-SW-COMPONENT-TYPE>
+					<!-- this SWC used to communicate to hardware as midpoint -->
+					<SHORT-NAME>ECU_SWC6</SHORT-NAME>
+					
+					<PORTS>
+						<P-PORT-PROTOTYPE>
+							<SHORT-NAME>dist_data</SHORT-NAME>
+							<PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/INT_PKG/Lidar_interface</PROVIDED-INTERFACE-TREF>
+						</P-PORT-PROTOTYPE>
+						
+						
+						<P-PORT-PROTOTYPE>
+							<SHORT-NAME>speed_feedback</SHORT-NAME>
+							<PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/INT_PKG/Speeed_interface</PROVIDED-INTERFACE-TREF>
+						</P-PORT-PROTOTYPE>
+						
+					</PORTS>
+						
+					
+				</ECU-ABSTRACTION-SW-COMPONENT-TYPE>
+				
+				
+				<COMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPE>
+					<!-- that for a critical time situation like breaking or decreasing 
+						the speed -->
+					<SHORT-NAME>CDD_SWC7</SHORT-NAME>
+					<PORTS>
+						<R-PORT-PROTOTYPE>
+							<SHORT-NAME>Critical_breaking_port</SHORT-NAME>
+							<REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/INT_PKG/COMPLIX_DEVICE_DRIVER_INTR</REQUIRED-INTERFACE-TREF>
+						</R-PORT-PROTOTYPE>
+					</PORTS>
+					
+					
+				</COMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPE>
+				
+				
+				<SERVICE-SW-COMPONENT-TYPE>
+					<!-- Store the Algorithm decision -->
+					<SHORT-NAME>Dign_SWC8</SHORT-NAME>
+					<PORTS>
+						<R-PORT-PROTOTYPE>
+							<SHORT-NAME>DMS_port</SHORT-NAME>
+							<REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/INT_PKG/DIGNOSTIC_INTER</REQUIRED-INTERFACE-TREF>
+						</R-PORT-PROTOTYPE>
+					</PORTS>
+				</SERVICE-SW-COMPONENT-TYPE>
+				
+				
+			</ELEMENTS>
+		</AR-PACKAGE>
+	</AR-PACKAGES>
+</AUTOSAR>

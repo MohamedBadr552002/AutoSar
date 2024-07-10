@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 file:///D:/work/embedded%20systems%20course/Unit_20(Autosar)/Unit_2(AutoarSWLayers)/Interfaces_Configuration(Lab2)/AUTOSAR_ARXML_Schema/AUTOSAR_00046.xsd">
+	
+	
+	<AR-PACKAGES>
+		<AR-PACKAGE>
+			<!-- This packege for configure interfaces between SWCs-->
+			<SHORT-NAME>INT_PKG</SHORT-NAME>
+			<ELEMENTS>
+			
+					<SENDER-RECEIVER-INTERFACE>
+					<!-- this packege used to communicate between libar SWC and ECU SWC-->
+						<SHORT-NAME>Lidar_interface</SHORT-NAME>
+						<DATA-ELEMENTS>
+							<VARIABLE-DATA-PROTOTYPE>
+								<SHORT-NAME>Dist</SHORT-NAME>
+								<TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/AUTOSAR_PlatformTypes/ImplementationDataTypes/uint32</TYPE-TREF>
+								<INIT-VALUE>
+									<NUMERICAL-VALUE-SPECIFICATION>
+										<VALUE>100</VALUE>
+									</NUMERICAL-VALUE-SPECIFICATION>
+								</INIT-VALUE>
+							</VARIABLE-DATA-PROTOTYPE>
+								
+						</DATA-ELEMENTS>
+					</SENDER-RECEIVER-INTERFACE>
+					
+					
+					<SENDER-RECEIVER-INTERFACE>
+					<!-- this packege used for speed feedback -->
+						<SHORT-NAME>Speeed_interface</SHORT-NAME>
+						<DATA-ELEMENTS>
+							<VARIABLE-DATA-PROTOTYPE>
+								<SHORT-NAME>speed</SHORT-NAME>
+								<TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/AUTOSAR_PlatformTypes/ImplementationDataTypes/uint32</TYPE-TREF>
+								<INIT-VALUE>
+									<NUMERICAL-VALUE-SPECIFICATION>
+										<VALUE>0</VALUE>
+									</NUMERICAL-VALUE-SPECIFICATION>
+								</INIT-VALUE>
+							</VARIABLE-DATA-PROTOTYPE>
+								
+						</DATA-ELEMENTS>
+					</SENDER-RECEIVER-INTERFACE>
+					
+					
+					
+					<SENDER-RECEIVER-INTERFACE>
+					<!-- this interface used by main algorithm to get the speed data by Speed feedback SWC-->
+						<SHORT-NAME>SPEED_REQ</SHORT-NAME>
+						<DATA-ELEMENTS>
+							<VARIABLE-DATA-PROTOTYPE>
+								<SHORT-NAME>speed_req</SHORT-NAME>
+								<TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/AUTOSAR_PlatformTypes/ImplementationDataTypes/uint32</TYPE-TREF>
+								<INIT-VALUE>
+									<NUMERICAL-VALUE-SPECIFICATION>
+										<VALUE>0</VALUE>
+									</NUMERICAL-VALUE-SPECIFICATION>
+								</INIT-VALUE>
+							</VARIABLE-DATA-PROTOTYPE>
+								
+						</DATA-ELEMENTS>
+					</SENDER-RECEIVER-INTERFACE>
+					
+					
+					<SENDER-RECEIVER-INTERFACE>
+					<!-- this interface used by main algorithm to get the distance data by lidar data SWC-->
+						<SHORT-NAME>DIST_REQ</SHORT-NAME>
+						<DATA-ELEMENTS>
+							<VARIABLE-DATA-PROTOTYPE>
+								<SHORT-NAME>dist_req</SHORT-NAME>
+								<TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/AUTOSAR_PlatformTypes/ImplementationDataTypes/uint32</TYPE-TREF>
+								<INIT-VALUE>
+									<NUMERICAL-VALUE-SPECIFICATION>
+										<VALUE>100</VALUE>
+									</NUMERICAL-VALUE-SPECIFICATION>
+								</INIT-VALUE>
+							</VARIABLE-DATA-PROTOTYPE>
+								
+						</DATA-ELEMENTS>
+					</SENDER-RECEIVER-INTERFACE>
+					
+					
+					<SENDER-RECEIVER-INTERFACE>
+					<!-- this interface used by main algorithm to give a warning command -->
+						<SHORT-NAME>Warning</SHORT-NAME>
+						<DATA-ELEMENTS>
+							<VARIABLE-DATA-PROTOTYPE>
+								<SHORT-NAME>led_command</SHORT-NAME>
+								<TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/AUTOSAR_PlatformTypes/ImplementationDataTypes/uint8</TYPE-TREF>
+								<INIT-VALUE>
+									<NUMERICAL-VALUE-SPECIFICATION>
+										<VALUE>0</VALUE>
+									</NUMERICAL-VALUE-SPECIFICATION>
+								</INIT-VALUE>
+							</VARIABLE-DATA-PROTOTYPE>
+						</DATA-ELEMENTS>
+					</SENDER-RECEIVER-INTERFACE>
+					
+					<!-- this interface used between main Application and Coniguration Distance paramter SWC to indicate about the fixed distance-->
+					<PARAMETER-INTERFACE>
+						<SHORT-NAME>DIST_PARAM_INTR</SHORT-NAME>
+						<PARAMETERS>
+							<PARAMETER-DATA-PROTOTYPE>
+								<SHORT-NAME>distances_1</SHORT-NAME>
+								<TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/AUTOSAR_PlatformTypes/ImplementationDataTypes/uint8</TYPE-TREF>								
+								<INIT-VALUE>
+									<NUMERICAL-VALUE-SPECIFICATION>
+										<VALUE>100</VALUE>
+									</NUMERICAL-VALUE-SPECIFICATION>
+								</INIT-VALUE>
+							</PARAMETER-DATA-PROTOTYPE>
+							
+							<PARAMETER-DATA-PROTOTYPE>
+								<SHORT-NAME>distances_2</SHORT-NAME>
+								<TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/AUTOSAR_PlatformTypes/ImplementationDataTypes/uint8</TYPE-TREF>								
+								<INIT-VALUE>
+									<NUMERICAL-VALUE-SPECIFICATION>
+										<VALUE>100</VALUE>
+									</NUMERICAL-VALUE-SPECIFICATION>
+								</INIT-VALUE>
+							</PARAMETER-DATA-PROTOTYPE>
+							
+							<PARAMETER-DATA-PROTOTYPE>
+								<SHORT-NAME>distances_3</SHORT-NAME>
+								<TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/AUTOSAR_PlatformTypes/ImplementationDataTypes/uint8</TYPE-TREF>								
+								<INIT-VALUE>
+									<NUMERICAL-VALUE-SPECIFICATION>
+										<VALUE>100</VALUE>
+									</NUMERICAL-VALUE-SPECIFICATION>
+								</INIT-VALUE>
+							</PARAMETER-DATA-PROTOTYPE>
+					
+						</PARAMETERS>
+					</PARAMETER-INTERFACE>
+					
+					
+					<!-- for critical time instructions to the hardware direct-->
+					<SENDER-RECEIVER-INTERFACE>
+						<SHORT-NAME>COMPLIX_DEVICE_DRIVER_INTR</SHORT-NAME>
+						<DATA-ELEMENTS>
+							<VARIABLE-DATA-PROTOTYPE>
+								<SHORT-NAME>speed_command</SHORT-NAME>
+								<TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/AUTOSAR_PlatformTypes/ImplementationDataTypes/uint16</TYPE-TREF>								
+								<INIT-VALUE>
+									<NUMERICAL-VALUE-SPECIFICATION>
+										<VALUE>0</VALUE>
+									</NUMERICAL-VALUE-SPECIFICATION>
+								</INIT-VALUE>
+							</VARIABLE-DATA-PROTOTYPE>
+						</DATA-ELEMENTS>	
+					</SENDER-RECEIVER-INTERFACE>
+					
+					
+					<!-- used by application to store commands in NV memory-->
+					<NV-DATA-INTERFACE>
+						<SHORT-NAME>NVB_STORGE_INTER</SHORT-NAME>
+						<NV-DATAS>
+							<VARIABLE-DATA-PROTOTYPE>
+								<SHORT-NAME>storage</SHORT-NAME>
+								<TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/AUTOSAR_PlatformTypes/ImplementationDataTypes/uint16</TYPE-TREF>								
+								<INIT-VALUE>
+									<NUMERICAL-VALUE-SPECIFICATION>
+										<VALUE>0</VALUE>
+									</NUMERICAL-VALUE-SPECIFICATION>
+								</INIT-VALUE>
+							</VARIABLE-DATA-PROTOTYPE>
+						</NV-DATAS>
+					</NV-DATA-INTERFACE>
+					
+					
+					<CLIENT-SERVER-INTERFACE>
+						<SHORT-NAME>DIGNOSTIC_INTER</SHORT-NAME>
+						<OPERATIONS>
+							<CLIENT-SERVER-OPERATION>
+								<SHORT-NAME>data_processing</SHORT-NAME>
+								<ARGUMENTS>
+									<ARGUMENT-DATA-PROTOTYPE>
+										<SHORT-NAME>data</SHORT-NAME>
+										<DIRECTION>IN</DIRECTION>
+									</ARGUMENT-DATA-PROTOTYPE>
+									
+									<ARGUMENT-DATA-PROTOTYPE>
+										<SHORT-NAME>state</SHORT-NAME>
+										<DIRECTION>OUT</DIRECTION>
+									</ARGUMENT-DATA-PROTOTYPE>
+									
+								</ARGUMENTS>
+							</CLIENT-SERVER-OPERATION>
+						</OPERATIONS>
+					</CLIENT-SERVER-INTERFACE>	
+					
+					
+			</ELEMENTS>
+					
+		</AR-PACKAGE>
+	</AR-PACKAGES>
+	
+	
+	
+</AUTOSAR>
