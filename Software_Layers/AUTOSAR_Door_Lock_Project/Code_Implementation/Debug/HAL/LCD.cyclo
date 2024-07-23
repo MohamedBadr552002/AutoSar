@@ -1,0 +1,13 @@
+LCD.c:12:7:LCD_delay	3
+LCD.c:20:6:LCD_kick	1
+LCD.c:35:6:HAL_LCD_init	4
+LCD.c:76:6:HAL_LCD_sendchar	8
+LCD.c:143:6:HAL_LCD_sendstring	2
+LCD.c:160:6:LCDIsbusy	1
+LCD.c:173:6:HAL_LCD_clearscreen	1
+LCD.c:185:6:LCD_returnhome	1
+LCD.c:199:6:LCD_gotoxy	5
+LCD.c:230:6:LCD_buildcustom	3
+LCD.c:248:6:LCD_dispcustom	1
+LCD.c:259:6:LCD_shift	1
+LCD.c:263:6:Wait	2

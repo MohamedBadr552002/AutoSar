@@ -1,0 +1,13 @@
+../HAL/LCD.c:12:7:LCD_delay	24	static
+../HAL/LCD.c:20:6:LCD_kick	16	static
+../HAL/LCD.c:35:6:HAL_LCD_init	24	static
+../HAL/LCD.c:76:6:HAL_LCD_sendchar	16	static
+../HAL/LCD.c:143:6:HAL_LCD_sendstring	16	static
+../HAL/LCD.c:160:6:LCDIsbusy	16	static
+../HAL/LCD.c:173:6:HAL_LCD_clearscreen	16	static
+../HAL/LCD.c:185:6:LCD_returnhome	16	static
+../HAL/LCD.c:199:6:LCD_gotoxy	24	static
+../HAL/LCD.c:230:6:LCD_buildcustom	32	static
+../HAL/LCD.c:248:6:LCD_dispcustom	16	static
+../HAL/LCD.c:259:6:LCD_shift	16	static
+../HAL/LCD.c:263:6:Wait	16	static

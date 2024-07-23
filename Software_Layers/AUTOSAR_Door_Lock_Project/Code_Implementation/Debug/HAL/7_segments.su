@@ -1,0 +1,2 @@
+../HAL/7_segments.c:14:6:HAL_7SEGMENT_INIT	8	static
+../HAL/7_segments.c:56:6:HAL_7SEGMENT_OUT	16	static

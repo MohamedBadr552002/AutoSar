@@ -1,0 +1,2 @@
+keybad.c:16:6:HAL_KEYPAD_INIT	1
+keybad.c:63:6:HAL_KEYPAD_GETCHAR	25

@@ -1,0 +1,4 @@
+../HAL/Servo_Motor.c:19:6:HAL_Servo1_Entry_Gate_Init	16	static
+../HAL/Servo_Motor.c:30:6:HAL_Servo1_Entry_Gate	16	static
+../HAL/Servo_Motor.c:51:6:HAL_Servo2_Exit_Gate_Init	16	static
+../HAL/Servo_Motor.c:62:6:HAL_Servo2_Exit_Gate	16	static

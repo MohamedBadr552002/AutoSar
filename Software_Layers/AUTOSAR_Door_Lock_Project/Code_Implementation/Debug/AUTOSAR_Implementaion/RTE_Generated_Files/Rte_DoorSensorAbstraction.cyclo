@@ -1,0 +1,2 @@
+Rte_DoorSensorAbstraction.c:23:6:Rte_IWrite_DoorSensorAbstraction_Door_Get_state_PP_SR_door_state_DoorState	1
+Rte_DoorSensorAbstraction.c:27:11:Rte_IWriteRef_DoorSensorAbstraction_Door_Get_state_PP_SR_door_state_DoorState	1

@@ -1,0 +1,2 @@
+../AUTOSAR_Implementaion/DoorSensorAbstraction.c:15:17:Led_Switch_Set_runnable	16	static
+../AUTOSAR_Implementaion/DoorSensorAbstraction.c:35:7:Door_Get_state_runnable	16	static

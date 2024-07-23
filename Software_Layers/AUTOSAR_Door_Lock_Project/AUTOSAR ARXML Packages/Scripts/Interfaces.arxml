@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 file:///D:/work/embedded%20systems%20course/Unit_20(Autosar)/Unit_2(AutoarSWLayers)/Interfaces_Configuration(Lab2)/AUTOSAR_ARXML_Schema/AUTOSAR_00046.xsd">
+	
+	
+	<AR-PACKAGES>
+		<AR-PACKAGE>
+			<!-- This packege for configure interfaces between SWCs-->
+			<SHORT-NAME>INT_PKG</SHORT-NAME>
+			<ELEMENTS>
+			
+					<SENDER-RECEIVER-INTERFACE>
+					<!-- this Interface used to communicate between Application SWC and ECU SWC to give indication about door states-->
+						<SHORT-NAME>IN_SR_DoorLock</SHORT-NAME>
+						<DATA-ELEMENTS>
+							<VARIABLE-DATA-PROTOTYPE>
+								<SHORT-NAME>DoorState</SHORT-NAME>
+								<TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/AUTOSAR_PlatformTypes/ImplementationDataTypes/uint8</TYPE-TREF>
+								<INIT-VALUE>
+									<NUMERICAL-VALUE-SPECIFICATION>
+										<VALUE>0</VALUE>
+									</NUMERICAL-VALUE-SPECIFICATION>
+								</INIT-VALUE>
+							</VARIABLE-DATA-PROTOTYPE>
+								
+						</DATA-ELEMENTS>
+					</SENDER-RECEIVER-INTERFACE>
+					
+					
+					
+					<CLIENT-SERVER-INTERFACE>
+					<!-- this Interface used to communicate between Application SWC and ECU SWC to exxecute the action according to door state -->
+						<SHORT-NAME>IN_CS_LED</SHORT-NAME>
+						<OPERATIONS>
+							<CLIENT-SERVER-OPERATION>
+								<SHORT-NAME>led_switch</SHORT-NAME>
+								<ARGUMENTS>
+									<ARGUMENT-DATA-PROTOTYPE>
+										<SHORT-NAME>door_state</SHORT-NAME>
+										<TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_PlatformTypes/ImplementationDataTypes/uint8</TYPE-TREF>
+										<DIRECTION>IN</DIRECTION>
+									</ARGUMENT-DATA-PROTOTYPE>
+								</ARGUMENTS>
+								<POSSIBLE-ERROR-REFS>
+									<POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/INT_PKG/IN_CS_LED/E_OK</POSSIBLE-ERROR-REF>
+									<POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/INT_PKG/IN_CS_LED/E_NOK</POSSIBLE-ERROR-REF>
+								</POSSIBLE-ERROR-REFS>
+							</CLIENT-SERVER-OPERATION>
+						</OPERATIONS>
+						
+						<POSSIBLE-ERRORS>
+							<APPLICATION-ERROR>
+								<SHORT-NAME>E_OK</SHORT-NAME>
+								<ERROR-CODE>0</ERROR-CODE>
+							</APPLICATION-ERROR>
+							
+							<APPLICATION-ERROR>
+								<SHORT-NAME>E_NOK</SHORT-NAME>
+								<ERROR-CODE>1</ERROR-CODE>
+							</APPLICATION-ERROR>
+						</POSSIBLE-ERRORS>
+					</CLIENT-SERVER-INTERFACE>	
+					
+					
+			</ELEMENTS>
+					
+		</AR-PACKAGE>
+	</AR-PACKAGES>
+	
+	
+	
+</AUTOSAR>
