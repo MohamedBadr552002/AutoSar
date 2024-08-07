@@ -1,0 +1,11 @@
+LearnInDepth_SW.oil: \
+ /D/work/embedded systems course/Unit_20(Autosar)/Unit_3(Autosar OS)/Trampoline_OSEK_VDX/goil/templates/config/config.oil \
+ /D/work/embedded systems course/Unit_20(Autosar)/Unit_3(Autosar OS)/Trampoline_OSEK_VDX/goil/templates/config/kernel.oil \
+ /D/work/embedded systems course/Unit_20(Autosar)/Unit_3(Autosar OS)/Trampoline_OSEK_VDX/goil/templates/config/api.oil \
+ /D/work/embedded systems course/Unit_20(Autosar)/Unit_3(Autosar OS)/Trampoline_OSEK_VDX/goil/templates/config/api_ioc.oil \
+ /D/work/embedded systems course/Unit_20(Autosar)/Unit_3(Autosar OS)/Trampoline_OSEK_VDX/goil/templates/config/cortex-m/config.oil \
+ /D/work/embedded systems course/Unit_20(Autosar)/Unit_3(Autosar OS)/Trampoline_OSEK_VDX/goil/templates/config/cortex-m/armv7em/config.oil \
+ /D/work/embedded systems course/Unit_20(Autosar)/Unit_3(Autosar OS)/Trampoline_OSEK_VDX/goil/templates/config/cortex-m/armv7em/buildOptions.oil \
+ /D/work/embedded systems course/Unit_20(Autosar)/Unit_3(Autosar OS)/Trampoline_OSEK_VDX/goil/templates/config/cortex-m/armv7em/stm32f407/config.oil \
+ /D/work/embedded systems course/Unit_20(Autosar)/Unit_3(Autosar OS)/Trampoline_OSEK_VDX/goil/templates/config/cortex-m/armv7em/stm32f407/stm32f4discovery/config.oil \
+ /D/work/embedded systems course/Unit_20(Autosar)/Unit_3(Autosar OS)/Trampoline_OSEK_VDX/goil/templates/config/config2.5.oil

@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 autosar_4-2-1.xsd">
+	<AR-PACKAGES>
+			<AR-PACKAGE>
+			<SHORT-NAME>MyDataTypes</SHORT-NAME>
+			<ELEMENTS>
+				<!-- ========================= Base Data Type ========================= -->
+				<SW-BASE-TYPE>
+					<SHORT-NAME>uint8</SHORT-NAME>
+					<CATEGORY>FIXED_LENGTH</CATEGORY>
+					<MAX-BASE-TYPE-SIZE>8</MAX-BASE-TYPE-SIZE>
+					<BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
+					<MEM-ALIGNMENT>1</MEM-ALIGNMENT>
+					<NATIVE-DECLARATION>unsigned char</NATIVE-DECLARATION>
+					 
+				</SW-BASE-TYPE>
+				<!-- ========================= Implementation Data Type ========================= -->
+				<!-- 1. Define Data Constrains -->
+				<DATA-CONSTR>
+					<SHORT-NAME>DataConstr_uint8</SHORT-NAME>
+					<DATA-CONSTR-RULES>
+						<DATA-CONSTR-RULE>
+							<PHYS-CONSTRS>
+								<LOWER-LIMIT>0</LOWER-LIMIT>
+								<UPPER-LIMIT>255</UPPER-LIMIT>
+							</PHYS-CONSTRS>
+							<INTERNAL-CONSTRS>
+								<LOWER-LIMIT>0</LOWER-LIMIT>
+								<UPPER-LIMIT>255</UPPER-LIMIT>
+							</INTERNAL-CONSTRS>
+						</DATA-CONSTR-RULE>
+					</DATA-CONSTR-RULES>
+				</DATA-CONSTR>
+				<!-- 2. Define Implementation Type -->
+				<IMPLEMENTATION-DATA-TYPE>
+					<SHORT-NAME>My_uint8</SHORT-NAME>
+					<CATEGORY>VALUE</CATEGORY>
+					<SW-DATA-DEF-PROPS>
+						<SW-DATA-DEF-PROPS-VARIANTS>
+							<SW-DATA-DEF-PROPS-CONDITIONAL>
+								<BASE-TYPE-REF DEST="SW-BASE-TYPE">/MyDataTypes/uint8</BASE-TYPE-REF>
+								<DATA-CONSTR-REF DEST="DATA-CONSTR">/MyDataTypes/DataConstr_uint8</DATA-CONSTR-REF>
+							</SW-DATA-DEF-PROPS-CONDITIONAL>
+						</SW-DATA-DEF-PROPS-VARIANTS>
+					</SW-DATA-DEF-PROPS>
+				</IMPLEMENTATION-DATA-TYPE>
+			</ELEMENTS>
+		</AR-PACKAGE>
+		<!-- =============================================================================================================== -->
+		<!-- =============================================================================================================== -->
+		<!-- =============================================== Interfaces ==================================================== -->
+		<!-- =============================================================================================================== -->
+		<!-- =============================================================================================================== -->
+		<AR-PACKAGE>
+			<!-- This packege for configure interfaces between SWCs-->
+			<SHORT-NAME>INT_PKG</SHORT-NAME>
+			<ELEMENTS>
+			
+					<SENDER-RECEIVER-INTERFACE>
+					<!-- this Interface used to communicate between Application SWC and ECU SWC to give indication about door states-->
+						<SHORT-NAME>IN_SR_DoorLock</SHORT-NAME>
+						<DATA-ELEMENTS>
+							<VARIABLE-DATA-PROTOTYPE>
+								<SHORT-NAME>DoorState</SHORT-NAME>
+								<TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/MyDataTypes/My_uint8</TYPE-TREF>
+								<INIT-VALUE>
+									<NUMERICAL-VALUE-SPECIFICATION>
+										<VALUE>0</VALUE>
+									</NUMERICAL-VALUE-SPECIFICATION>
+								</INIT-VALUE>
+							</VARIABLE-DATA-PROTOTYPE>
+								
+						</DATA-ELEMENTS>
+					</SENDER-RECEIVER-INTERFACE>
+					
+					
+					
+					<CLIENT-SERVER-INTERFACE>
+					<!-- this Interface used to communicate between Application SWC and ECU SWC to exxecute the action according to door state -->
+						<SHORT-NAME>IN_CS_LED</SHORT-NAME>
+						<OPERATIONS>
+							<CLIENT-SERVER-OPERATION>
+								<SHORT-NAME>led_switch</SHORT-NAME>
+								<ARGUMENTS>
+									<ARGUMENT-DATA-PROTOTYPE>
+										<SHORT-NAME>door_state</SHORT-NAME>
+										<TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/MyDataTypes/My_uint8</TYPE-TREF>
+										<DIRECTION>IN</DIRECTION>
+									</ARGUMENT-DATA-PROTOTYPE>
+								</ARGUMENTS>
+								<POSSIBLE-ERROR-REFS>
+									<POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/INT_PKG/IN_CS_LED/E_OK</POSSIBLE-ERROR-REF>
+									<POSSIBLE-ERROR-REF DEST="APPLICATION-ERROR">/INT_PKG/IN_CS_LED/E_NOK</POSSIBLE-ERROR-REF>
+								</POSSIBLE-ERROR-REFS>
+							</CLIENT-SERVER-OPERATION>
+						</OPERATIONS>
+						
+						<POSSIBLE-ERRORS>
+							<APPLICATION-ERROR>
+								<SHORT-NAME>E_OK</SHORT-NAME>
+								<ERROR-CODE>0</ERROR-CODE>
+							</APPLICATION-ERROR>
+							
+							<APPLICATION-ERROR>
+								<SHORT-NAME>E_NOK</SHORT-NAME>
+								<ERROR-CODE>1</ERROR-CODE>
+							</APPLICATION-ERROR>
+						</POSSIBLE-ERRORS>
+					</CLIENT-SERVER-INTERFACE>	
+					
+					
+			</ELEMENTS>
+		</AR-PACKAGE>	
+		
+		<!-- =============================================================================================================== -->
+		<!-- =============================================================================================================== -->
+		<!-- =============================================== Software Components =========================================== -->
+		<!-- =============================================================================================================== -->
+		<!-- =============================================================================================================== -->
+	
+		<AR-PACKAGE>
+			<SHORT-NAME>Software_Com_PKG</SHORT-NAME>
+			<!--Door Lock Indication -->
+			<ELEMENTS>
+				
+			
+				<APPLICATION-SW-COMPONENT-TYPE>
+					<!-- this component used to define the action taken based on the logical 
+						implementation -->
+					<SHORT-NAME>DoorLockIndication_SWC</SHORT-NAME>
+					
+					<PORTS>
+						<R-PORT-PROTOTYPE>
+							<SHORT-NAME>RP_SR_door_state</SHORT-NAME>
+							<REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/INT_PKG/IN_SR_DoorLock</REQUIRED-INTERFACE-TREF>
+						</R-PORT-PROTOTYPE>
+							
+						
+						
+						<R-PORT-PROTOTYPE>
+							<SHORT-NAME>RP_CS_ledControl</SHORT-NAME>
+							<REQUIRED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/INT_PKG/IN_CS_LED</REQUIRED-INTERFACE-TREF>
+						</R-PORT-PROTOTYPE>
+						
+					</PORTS>
+					
+					
+					<INTERNAL-BEHAVIORS>
+						<SWC-INTERNAL-BEHAVIOR>
+							<SHORT-NAME>IB_DoorLockIndication_SWC</SHORT-NAME>
+							
+							<!-- TODO :: EVENTS CONFIGURATIONs -->	
+							
+							
+							<RUNNABLES>
+								<RUNNABLE-ENTITY>
+									<SHORT-NAME>Main_Algo</SHORT-NAME>
+									<DATA-RECEIVE-POINT-BY-ARGUMENTS>
+										<VARIABLE-ACCESS>
+											<SHORT-NAME>door_state</SHORT-NAME>
+											<ACCESSED-VARIABLE>
+												<AUTOSAR-VARIABLE-IREF>
+													<PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/Software_Com_PKG/DoorLockIndication_SWC/RP_SR_door_state</PORT-PROTOTYPE-REF>
+													<TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/INT_PKG/IN_SR_DoorLock/DoorState</TARGET-DATA-PROTOTYPE-REF>
+												</AUTOSAR-VARIABLE-IREF>
+											</ACCESSED-VARIABLE>
+										</VARIABLE-ACCESS>
+									
+									</DATA-RECEIVE-POINT-BY-ARGUMENTS>
+									
+									<SERVER-CALL-POINTS>
+										<SYNCHRONOUS-SERVER-CALL-POINT>
+											<SHORT-NAME>SCALL_led_switch</SHORT-NAME>
+											<OPERATION-IREF>
+												<CONTEXT-R-PORT-REF DEST="R-PORT-PROTOTYPE">/Software_Com_PKG/DoorLockIndication_SWC/RP_CS_ledControl</CONTEXT-R-PORT-REF>
+												<TARGET-REQUIRED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/INT_PKG/IN_CS_LED/led_switch</TARGET-REQUIRED-OPERATION-REF>
+											</OPERATION-IREF>
+										</SYNCHRONOUS-SERVER-CALL-POINT>
+										
+									</SERVER-CALL-POINTS>	
+									<SYMBOL>DoorLockIndication_SWC_runable</SYMBOL>
+								</RUNNABLE-ENTITY>
+							
+							</RUNNABLES>
+						</SWC-INTERNAL-BEHAVIOR>
+					
+						
+					</INTERNAL-BEHAVIORS>
+					
+					
+				</APPLICATION-SW-COMPONENT-TYPE>
+				
+				
+				
+				
+				<ECU-ABSTRACTION-SW-COMPONENT-TYPE>
+					<!-- this SWC used to communicate to hardware as midpoint -->
+					<SHORT-NAME>DoorSensorAbstraction</SHORT-NAME>
+					
+					<PORTS>
+						<P-PORT-PROTOTYPE>
+							<SHORT-NAME>PP_SR_door_state</SHORT-NAME>
+							<PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/INT_PKG/IN_SR_DoorLock</PROVIDED-INTERFACE-TREF>
+						</P-PORT-PROTOTYPE>
+						
+						
+						<P-PORT-PROTOTYPE>
+							<SHORT-NAME>PP_CS_led_switch</SHORT-NAME>
+							<PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/INT_PKG/IN_CS_LED</PROVIDED-INTERFACE-TREF>
+						</P-PORT-PROTOTYPE>
+						
+					</PORTS>
+					
+					<INTERNAL-BEHAVIORS>
+						<SWC-INTERNAL-BEHAVIOR>
+							<SHORT-NAME>IB_DoorSensorAbstraction</SHORT-NAME>
+							
+							<!-- Descripe the Event to drive the SWCs -->
+							<EVENTS>
+								<TIMING-EVENT>
+								<!--Configure a time event to Drive the Door Get status runnables  -->
+									<SHORT-NAME>TIM_EVE_10ms</SHORT-NAME>
+									<START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/Software_Com_PKG/DoorSensorAbstraction/IB_DoorSensorAbstraction/Door_Get_state</START-ON-EVENT-REF>
+									<PERIOD>0.01</PERIOD>
+								</TIMING-EVENT>
+								
+								<!-- Configure an operational event to drive the Led control runnable -->
+								<OPERATION-INVOKED-EVENT>
+									<SHORT-NAME>DIO_led_switch</SHORT-NAME>
+									<START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/Software_Com_PKG/DoorSensorAbstraction/IB_DoorSensorAbstraction/Led_Switch_Set</START-ON-EVENT-REF>
+									<OPERATION-IREF>
+										<CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/Software_Com_PKG/DoorSensorAbstraction/PP_CS_led_switch</CONTEXT-P-PORT-REF>
+										<TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/INT_PKG/IN_CS_LED/led_switch</TARGET-PROVIDED-OPERATION-REF>
+									</OPERATION-IREF>
+								</OPERATION-INVOKED-EVENT>
+							</EVENTS>
+							
+							
+							<!-- SWC's Runnables discription -->	
+							<RUNNABLES>
+								<RUNNABLE-ENTITY>
+									<SHORT-NAME>Door_Get_state</SHORT-NAME>
+									<MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+									<CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+									<DATA-WRITE-ACCESSS>
+										<VARIABLE-ACCESS>
+											<SHORT-NAME>DS_value</SHORT-NAME>
+											<ACCESSED-VARIABLE>
+												<AUTOSAR-VARIABLE-IREF>
+													<PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/Software_Com_PKG/DoorSensorAbstraction/PP_SR_door_state</PORT-PROTOTYPE-REF>
+													<TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/INT_PKG/IN_SR_DoorLock/DoorState</TARGET-DATA-PROTOTYPE-REF>
+													
+												</AUTOSAR-VARIABLE-IREF>
+											</ACCESSED-VARIABLE>
+										</VARIABLE-ACCESS>
+									</DATA-WRITE-ACCESSS>
+									<SYMBOL>Door_Get_state_runnable</SYMBOL>
+								</RUNNABLE-ENTITY>
+								
+								
+								<RUNNABLE-ENTITY>
+									<SHORT-NAME>Led_Switch_Set</SHORT-NAME>
+									<MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+									<CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+									<SYMBOL>Led_Switch_Set_runnable</SYMBOL>									
+								</RUNNABLE-ENTITY>
+							</RUNNABLES>
+							
+							
+						</SWC-INTERNAL-BEHAVIOR>
+					</INTERNAL-BEHAVIORS>
+						
+					
+				</ECU-ABSTRACTION-SW-COMPONENT-TYPE>
+				
+				
+
+
+			</ELEMENTS>
+		</AR-PACKAGE>
+		
+		<!-- =============================================================================================================== -->
+		<!-- =============================================================================================================== -->
+		<!-- =============================================== Compositions ================================================== -->
+		<!-- =============================================================================================================== -->
+		<!-- =============================================================================================================== -->
+		<AR-PACKAGE>
+			<SHORT-NAME>Compostion_SWC_PKGs</SHORT-NAME>
+			<ELEMENTS>
+					<COMPOSITION-SW-COMPONENT-TYPE>
+					<SHORT-NAME>Comp_PKG</SHORT-NAME>
+					<COMPONENTS>
+						<SW-COMPONENT-PROTOTYPE>
+							<SHORT-NAME>Comp_ECU_Abstraction</SHORT-NAME>
+							<TYPE-TREF DEST="ECU-ABSTRACTION-SW-COMPONENT-TYPE">/Software_Com_PKG/DoorSensorAbstraction</TYPE-TREF>
+						</SW-COMPONENT-PROTOTYPE>
+						
+						<SW-COMPONENT-PROTOTYPE>
+							<SHORT-NAME>Comp_DoorLook_App</SHORT-NAME>
+							<TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/Software_Com_PKG/DoorLockIndication_SWC</TYPE-TREF>
+						</SW-COMPONENT-PROTOTYPE>
+					</COMPONENTS>
+					
+					<CONNECTORS>
+						<ASSEMBLY-SW-CONNECTOR>
+						<!-- Configure an Assembly connectors to communicate with door state -->
+							<SHORT-NAME>ASC_Door_state</SHORT-NAME>
+							<PROVIDER-IREF>
+								<CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/Compostion_SWC_PKGs/Comp_PKG/Comp_ECU_Abstraction</CONTEXT-COMPONENT-REF>
+								<TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/Software_Com_PKG/DoorSensorAbstraction/PP_SR_door_state</TARGET-P-PORT-REF>
+							</PROVIDER-IREF>
+							
+							<REQUESTER-IREF>
+								<CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/Compostion_SWC_PKGs/Comp_PKG/Comp_DoorLook_App</CONTEXT-COMPONENT-REF>
+								<TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/Software_Com_PKG/DoorLockIndication_SWC/RP_SR_door_state</TARGET-R-PORT-REF>
+							</REQUESTER-IREF>
+						</ASSEMBLY-SW-CONNECTOR>
+						
+						<!-- Configure an Assembly connectors to communicate with Led Switch -->	
+						<ASSEMBLY-SW-CONNECTOR>
+							<SHORT-NAME>ASC_Led_switch</SHORT-NAME>
+							<PROVIDER-IREF>
+								<CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/Compostion_SWC_PKGs/Comp_PKG/Comp_ECU_Abstraction</CONTEXT-COMPONENT-REF>
+								<TARGET-P-PORT-REF DEST="P-PORT-PROTOTYPE">/Software_Com_PKG/DoorSensorAbstraction/PP_CS_led_switch</TARGET-P-PORT-REF>
+							</PROVIDER-IREF>
+							
+							<REQUESTER-IREF>
+								<CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/Compostion_SWC_PKGs/Comp_PKG/Comp_DoorLook_App</CONTEXT-COMPONENT-REF>
+								<TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/Software_Com_PKG/DoorLockIndication_SWC/RP_CS_ledControl</TARGET-R-PORT-REF>
+							</REQUESTER-IREF>
+						</ASSEMBLY-SW-CONNECTOR>
+						
+					</CONNECTORS>
+				</COMPOSITION-SW-COMPONENT-TYPE>
+
+				
+			</ELEMENTS>
+		</AR-PACKAGE>
+	
+	</AR-PACKAGES>
+</AUTOSAR>

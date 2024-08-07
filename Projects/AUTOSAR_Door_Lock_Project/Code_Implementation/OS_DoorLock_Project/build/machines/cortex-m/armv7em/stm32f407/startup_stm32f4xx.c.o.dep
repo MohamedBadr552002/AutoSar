@@ -1,0 +1,74 @@
+build/machines/cortex-m/armv7em/stm32f407/startup_stm32f4xx.c.o: \
+ ../../../machines/cortex-m/armv7em/stm32f407/startup_stm32f4xx.c \
+ d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\sys\types.h \
+ d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\_ansi.h \
+ d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\newlib.h \
+ d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\_newlib_version.h \
+ d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\sys\config.h \
+ d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\machine\ieeefp.h \
+ d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\sys\features.h \
+ d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\sys\cdefs.h \
+ d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\machine\_default_types.h \
+ d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\lib\gcc\arm-none-eabi\7.2.1\include\stddef.h \
+ d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\machine\_types.h \
+ d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\sys\_types.h \
+ d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\sys\lock.h \
+ d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\sys\_stdint.h \
+ d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\machine\endian.h \
+ d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\machine\_endian.h \
+ d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\sys\select.h \
+ d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\sys\_sigset.h \
+ d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\sys\_timeval.h \
+ d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\sys\timespec.h \
+ d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\sys\_timespec.h \
+ d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\sys\_pthreadtypes.h \
+ d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\sys\sched.h \
+ d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\machine\types.h
+
+d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\sys\types.h:
+
+d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\_ansi.h:
+
+d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\newlib.h:
+
+d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\_newlib_version.h:
+
+d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\sys\config.h:
+
+d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\machine\ieeefp.h:
+
+d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\sys\features.h:
+
+d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\sys\cdefs.h:
+
+d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\machine\_default_types.h:
+
+d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\lib\gcc\arm-none-eabi\7.2.1\include\stddef.h:
+
+d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\machine\_types.h:
+
+d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\sys\_types.h:
+
+d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\sys\lock.h:
+
+d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\sys\_stdint.h:
+
+d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\machine\endian.h:
+
+d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\machine\_endian.h:
+
+d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\sys\select.h:
+
+d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\sys\_sigset.h:
+
+d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\sys\_timeval.h:
+
+d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\sys\timespec.h:
+
+d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\sys\_timespec.h:
+
+d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\sys\_pthreadtypes.h:
+
+d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\sys\sched.h:
+
+d:\work\embedded\ systems\ course\unit_3(embedded\ c)\labs\arm\arm-none-eabi\include\machine\types.h:
