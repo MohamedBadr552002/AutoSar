@@ -110,9 +110,10 @@ Responsible for aTransmitting and Recieving data Over the CAN Network.
 
 ![Com_Stack_CAN drawio](https://github.com/user-attachments/assets/a8ab4a94-1b70-456f-ac07-8cc614862aa9)
 
-![image](https://github.com/user-attachments/assets/2fc5d15d-82aa-4504-bd02-764c02294537)
+![image](https://github.com/user-attachments/assets/ffddefee-b216-4741-ab6d-d530962a7def)
 
-![image](https://github.com/user-attachments/assets/8aa95077-b13f-42b5-b54e-b9245ebd58bf)
+
+![image](https://github.com/user-attachments/assets/a7c5dc72-4556-4a9f-bee2-1a11385694fc)
 
 
 ## Signal Vs Signal group
