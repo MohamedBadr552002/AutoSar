@@ -109,3 +109,27 @@ Responsible for aTransmitting and Recieving data Over the CAN Network.
 ## AUTOSAR COM Stack Example on CAN module
 
 ![Com_Stack_CAN drawio](https://github.com/user-attachments/assets/a8ab4a94-1b70-456f-ac07-8cc614862aa9)
+
+![image](https://github.com/user-attachments/assets/2fc5d15d-82aa-4504-bd02-764c02294537)
+
+![image](https://github.com/user-attachments/assets/8aa95077-b13f-42b5-b54e-b9245ebd58bf)
+
+
+## Signal Vs Signal group
+### Signal 
+A signal is the smallest unit of data that can be transmitted over the CAN bus, It represents a specific piece of information Each signal has a defined length in bits and a specific position within a CAN message.
+
+### Signal Group
+A signal group is a collection of signals that are logically grouped together, This grouping can be based on the functionality or the source of the signals.
+
+## I-PDU, N-PDU and L-PDU
+#### PDU = SDU & PCI
+* SDU represents the data slated for transmission
+* PCI holds crucial information regarding the next destination of the SDU.it includes details about the source and destination of the SDU.
+
+#### Whenever the PDU is in layers above the Communication Hardware Abstraction layer then it's called I-PDU.
+
+#### Whenever the PDU is in layers below PDUR and above the Communication Drivers layer then it's called N-PDU.
+
+#### Whenever the PDU is below Communication Hardware Abstraction then it's called L-PDU.
+
