@@ -134,3 +134,24 @@ A signal group is a collection of signals that are logically grouped together, T
 
 #### Whenever the PDU is below Communication Hardware Abstraction then it's called L-PDU.
 
+
+## COM Module Features
+
+### Transmission modes (Pdu level)
+`1- Direct Mode:` Sending Data immediately without any time constraints or scheduling when it triggered by SWCs.
+
+`2- Periodic Mode:` Data transmission occurs at regular intervals, predetermined by timing parameters. This mode is suitable for periodic data updates.
+
+`3- Mixed:` A combination of Direct and periodic.
+
+### Transfer property (Signal level)
+`1- Triggered: ` The transmission of the message is triggered if the signal is written regardless of the signal value.
+
+`2- Triggered On Change: ` The transmission is triggered only if the value of message has been changed.
+
+`3- Repetition : ` Means that the message sent many times when it triggered.
+
+`3- Pending: ` Data Transmission is delayed untill certain conditions.
+
+
+
