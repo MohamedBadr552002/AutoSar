@@ -161,3 +161,16 @@ A signal group is a collection of signals that are logically grouped together, T
 ![Screenshot 2024-08-17 142219](https://github.com/user-attachments/assets/921316be-d5ec-4f0c-bbe3-bb08321e4948)
 
 
+### Example Lab2 For Periodic Mode
+
+![image](https://github.com/user-attachments/assets/0d6ee38f-1a29-42cc-8c23-27a5b2a77438)
+
+![image](https://github.com/user-attachments/assets/f588f0fb-d8a2-427e-8618-3d4f56a11dbe)
+
+### Example Lab3 For Mixed Mode
+* Note that the Repetation of messages happen in mixed mode only when the triggered message has been happened.
+
+![image](https://github.com/user-attachments/assets/afdff2ad-dd30-4436-9047-f36dffaec3ec)
+
+![image](https://github.com/user-attachments/assets/ac10e3fa-923c-450d-a4ef-e708452e89e5)
+
