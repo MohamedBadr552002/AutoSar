@@ -154,4 +154,10 @@ A signal group is a collection of signals that are logically grouped together, T
 `3- Pending: ` Data Transmission is delayed untill certain conditions.
 
 
+### Example Lab1 For Direct Mode
+
+![image](https://github.com/user-attachments/assets/bca3394d-8cdf-4c9d-a7c9-8babeb086bc0)
+
+![Screenshot 2024-08-17 142219](https://github.com/user-attachments/assets/921316be-d5ec-4f0c-bbe3-bb08321e4948)
+
 
