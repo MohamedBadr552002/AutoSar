@@ -174,3 +174,24 @@ A signal group is a collection of signals that are logically grouped together, T
 
 ![image](https://github.com/user-attachments/assets/ac10e3fa-923c-450d-a4ef-e708452e89e5)
 
+
+
+## Com-Filter Feature
+* This feature is extremely useful and avoid unnecessary processing of messages and cluttering of the communication buses.
+* `On the reception side`, after the I-PDUs are received and the signals are extracted, the COM filters can be applied to determine whether the received signal values should be passed to the application or not.
+* `On Transmission Mode Selection (TMS)` The role of the filter is to evaluate certain conditions and influence the selection of the transmission mode `ComTxModeTrue` (when conditions are true) or `ComTxModeFalse` (when conditions are false).
+
+![image](https://github.com/user-attachments/assets/70cf62a0-acff-4a50-803a-0c4c89ba0a02)
+
+### Filters types
+
+| Name       | Operation      | 
+| -------------- | -------------- | 
+| ALWAYS| True | 
+| NEVER| False | 
+| MASKED_NEW_EQUALS_X | `(value & mask) == x`| 
+| MASKED_NEW_DIFFERS_X | `(value & mask) != x`| 
+| MASKED_NEW_DIFFERS_MASKED_OLD | `(value & mask) != (Old_value & mask)`| 
+| NEW_IS_WITHIN | `(min <= value <= max)`| 
+| NEW_IS_OUTSIDE | `(min > value) or (value > max)`| 
+| ONE_EVERY_N | `occurrence % period == offset`| 
