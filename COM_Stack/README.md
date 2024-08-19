@@ -195,3 +195,20 @@ A signal group is a collection of signals that are logically grouped together, T
 | NEW_IS_WITHIN | `(min <= value <= max)`| 
 | NEW_IS_OUTSIDE | `(min > value) or (value > max)`| 
 | ONE_EVERY_N | `occurrence % period == offset`| 
+
+
+## Signal Group Feature
+* COM introduces the signal group feature to handle complex data types.
+* RTE sends group signals to COM using `Com_UpdateShadowSignal`, which are then stored in COM's shadow buffer
+* Once all group signals are sent, RTE triggers the `Com_SendSignalGroup` function for transmission
+
+![image](https://github.com/user-attachments/assets/2d08ae1f-65d2-43d2-bd44-7d58b2065f07)
+
+### APIs 
+
+* Runnable in the software component updates the temperature and pressure signals.
+* RTE processes the updates and calls the corresponding COM APIs.
+* COM module stores the signals in the shadow buffer and checks if all signals are updated.
+* COM triggers the IPDU transmission via the PDU Router when all signals in the ComSignalGroup are updated.
+
+![image](https://github.com/user-attachments/assets/456abe1f-7b60-4dc0-bdaa-af52f8ad69cb)
