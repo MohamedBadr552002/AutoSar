@@ -212,3 +212,30 @@ A signal group is a collection of signals that are logically grouped together, T
 * COM triggers the IPDU transmission via the PDU Router when all signals in the ComSignalGroup are updated.
 
 ![image](https://github.com/user-attachments/assets/456abe1f-7b60-4dc0-bdaa-af52f8ad69cb)
+
+
+## Deadline Monitoing
+* Deadline Monitoring is a mechanism in AUTOSAR that ensures timely reception and transmission of I-PDUs.
+* Deadline Monitoring is a mechanism that monitors
+  * if I-PDU is not received within the specified time for the Rx signal
+  * if I-PDU transmits, confirmation is not received within the specified time from PduR for Tx signal.
+
+### Transmission Confirmation Sequence 
+
+![image](https://github.com/user-attachments/assets/083c5804-c94d-4fc0-acd8-52174c17ffb7)
+
+### Receiving Confirmation Sequence
+
+![image](https://github.com/user-attachments/assets/e5bf57ad-2ad7-4276-bc87-f0258b4e88bc)
+
+### ComIPduSignalProcessing Options
+* `IMMEDIATE:` Signals are processed as soon as the PDU is received, ensuring real-time data availability.
+* `DEFERRED:` Signal processing is delayed based on specific conditions, allowing for better resource management and system performance optimization.
+
+### Configuration Parameters
+* `ComTimeout:` Specifies the timeout value for receiving or transmitting a signal
+* `ComFirstTimeout:` This parameter specifies the maximum time allowed for the first transmission attempt of a message.
+* `ComRxDataTimeoutAction:` Specifies the action to take when an RX timeout occurs.
+  * NONE: No action is taken on timeout.
+  * REPLACE: The signal data is replaced with an invalid value on timeout
+* `ComTimeoutNotification:` Specifies the notification to send when a timeout occurs.
